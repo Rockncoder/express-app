@@ -38,9 +38,20 @@ function getById(id, callback){
   });
 }
 
+function post(contact, callback){
+  ContactModel.findOneAndUpdate({id: contact.id}, {
+      name: {
+        first: contact.first,
+        last: contact.last
+      }
+  }, {upsert: true}, function (err, contacts) {
+    callback(err, contacts);
+  });
+}
 module.exports = function () {
   return {
     getContacts: get,
-    getContact: getById
+    getContact: getById,
+    postContact: post
   };
 }();

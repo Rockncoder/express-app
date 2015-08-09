@@ -31,9 +31,10 @@ router.get('/edit-contact/:id', function(req, res, next){
 });
 
 router.post('/edit-contact/', function(req, res, next){
-    console.log("Edit Contact Post");
-  res.redirect('/contacts/');
-
+  console.log("Edit Contact Post");
+  db.Contacts.postContact(req.body, function(err, data){
+    res.redirect('/contacts/');
+  });
 });
 
 

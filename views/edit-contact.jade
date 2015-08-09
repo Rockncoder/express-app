@@ -7,6 +7,7 @@ block content
   div
     .col-lg-offset-1.col-lg-8
       form.form-horizontal(novalidate role="form" name="form" method="post" action="/edit-contact/")
+        input(type="hidden" name="id" value="#{contact.id}")
         .form-group
           label.col-sm-2.control-label(for="first") First Name
           .col-sm-10
