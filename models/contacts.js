@@ -24,7 +24,7 @@ var contactSchema = new mongoose.Schema({
   }
 });
 
-var ContactModel = mongoose.model('Contact', contactSchema);
+var ContactModel = mongoose.model('Contacts', contactSchema);
 
 function get(callback){
   ContactModel.find({}, function (err, contacts) {
