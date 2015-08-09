@@ -1,5 +1,5 @@
 doctype html
-html(ng-app)
+html(ng-app="Contacts")
     head
         meta(name='viewport', content='width=device-width, initial-scale=1.0')
         title= title
@@ -19,13 +19,13 @@ html(ng-app)
                 .collapse.navbar-collapse(id="bs-example-navbar-collapse-1")
                     ul.nav.navbar-nav
                         li
-                            a(href="/about/") About
+                            a(href="#/about") About
                         li
-                            a(href="/contacts/") Contacts
+                            a(href="#/contacts") Contacts
                         li
-                            a(href="/add-contact/") Add Contact
+                            a(href="#/add-contact") Add Contact
         .container
-        block content
+            div(ng-view)
 
         script(src='/javascripts/jquery-2.1.3.min.js')
         script(src='/javascripts/angular.js')
@@ -33,3 +33,8 @@ html(ng-app)
         script(src='/bootstrap/js/bootstrap.min.js')
 
         script(src='/javascripts/app.js')
+        script(src='/javascripts/routes.js')
+        script(src='/javascripts/contact-service.js')
+        script(src='/javascripts/contacts-list-controller.js')
+        script(src='/javascripts/edit-contact-controller.js')
+        script(src='/javascripts/add-contact-controller.js')

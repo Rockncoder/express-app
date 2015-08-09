@@ -1,0 +1,15 @@
+<div>
+  <div class="row">
+    <aside class="col-lg-3">
+      <ul class="list-group">
+        <li ng-repeat="contact in contacts" class="list-group-item my-fade-animation">
+          <button type="button" class="btn btn-danger" ng-click="delete($index)">
+            <span class="glyphicon glyphicon-minus"></span></button>
+          <a ng-href="#/contacts/{{$contact.id|| $index}}">
+            <span>{{contact.firstName}}</span>&nbsp;<span>{{contact.lastName}}</span>
+          </a>
+        </li>
+      </ul>
+    </aside>
+  </div>
+</div>

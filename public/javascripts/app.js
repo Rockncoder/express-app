@@ -1,6 +1,7 @@
 (function () {
   "use strict";
 
-  angular.module("Contacts", ['ng-route']);
+  angular.module("Contacts", ['ngRoute'])
+    .constant("CONTACTS_URL", "/contacts");
 
 }());
