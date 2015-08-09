@@ -23,8 +23,11 @@ router.get('/add-contact', function(req, res, next){
   res.render('index', { title: 'Add Contact' });
 });
 
-router.get('/edit-contact/:name', function(req, res, next){
-  res.render('edit-contact', { title: 'Edit Contact', name: req.params.name });
+router.get('/edit-contact/:id', function(req, res, next){
+  var id = req.params.id;
+  db.Contacts.getContact(id, function(err, contact) {
+    res.render('edit-contact', {title: 'Edit Contact', contact: contact});
+  })
 });
 
 module.exports = router;

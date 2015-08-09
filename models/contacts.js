@@ -32,8 +32,15 @@ function get(callback){
   });
 }
 
+function getById(id, callback){
+  ContactModel.findById(id, function (err, contacts) {
+    callback(err, contacts);
+  });
+}
+
 module.exports = function () {
   return {
-    getContacts: get
+    getContacts: get,
+    getContact: getById
   };
 }();
