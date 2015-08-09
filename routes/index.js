@@ -1,5 +1,6 @@
 var express = require('express');
-var router = express.Router()
+var router = express.Router();
+var db = require('../models/db');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -11,12 +12,11 @@ router.get('/about', function(req, res, next){
 });
 
 router.get('/contacts', function(req, res, next){
-  res.render('contacts', { title: 'Contacts', contacts: [
-    {firstName: 'Troy'},
-    {firstName: 'Anthony'},
-    {firstName: 'Miles'},
-    {firstName: 'Robert'}
-  ] });
+  db.Contacts.getContacts(function(err, contacts){
+    if(!err){
+      res.render('contacts', { title: 'Contacts', contacts: contacts});
+    }
+  });
 });
 
 router.get('/add-contact', function(req, res, next){

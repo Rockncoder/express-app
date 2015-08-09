@@ -16,5 +16,10 @@ mongoose.connection.on('disconnected', function(){
   console.log('Mongoose disconnected');
 });
 
+var contacts = require('./contacts');
 
-require('./contacts');
+module.exports = function () {
+  return {
+    Contacts: contacts
+  };
+}();
