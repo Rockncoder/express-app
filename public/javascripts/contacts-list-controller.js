@@ -8,15 +8,14 @@
         // if we are using local storage, the contacts can retrieved directly
         // $scope.contacts = ContactService.getContacts();
 
-        debugger;
         $scope.contacts = [];
 
         ContactService.getContacts().then(function (data) {
           // if we are using $http the data is in data.data
-          // $scope.contacts = data.data;
+          $scope.contacts = data.data;
 
           // if we are using FireBase, it is simply in data
-          $scope.contacts = data;
+          //$scope.contacts = data;
         });
 
         $scope.delete = function (id) {

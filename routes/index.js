@@ -37,6 +37,20 @@ router.post('/edit-contact/', function(req, res, next){
   });
 });
 
+router.get('/contacts/contacts', function(req, res, next){
+  db.Contacts.getContacts(function(err, contacts){
+    if(!err){
+      res.json(contacts);
+    }
+  });
+});
+
+router.get('/contacts/contacts/:id', function(req, res, next){
+  var id = req.params.id;
+  db.Contacts.getContact(id, function(err, contact) {
+    res.json(contact);
+  })
+});
 
 
 module.exports = router;
